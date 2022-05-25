@@ -1,10 +1,10 @@
 # This .gitignore file should be placed at the root of your Unity project directory
 
-/[Ll]ibrary/
+[Ll]ibrary/
 [Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
 *[Cc]ache/
@@ -57,6 +57,7 @@ ExportedObj/
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
+*.meta
 
 # Unity3D generated file on crash reports
 sysinfo.txt
@@ -76,5 +77,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*
+.idea/

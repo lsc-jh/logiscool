@@ -1,5 +1,10 @@
-# This .gitignore file should be placed at the root of your Unity project directory
+# Created by https://www.toptal.com/developers/gitignore/api/unity
+# Edit at https://www.toptal.com/developers/gitignore?templates=unity
 
+### Unity ###
+# This .gitignore file should be placed at the root of your Unity project directory
+#
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -7,12 +12,7 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
-*[Cc]ache/
-*[Dd]ata/
-MonoBleedingEdge/
-Artifacts/
-desktop.ini*
-[Ss]criptAssemblies/
+.idea/
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
@@ -50,25 +50,19 @@ ExportedObj/
 *.opendb
 *.VC.db
 
-# Locks
-*-lock*
-*[Cc]ache*
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
-*.meta
 
 # Unity3D generated file on crash reports
 sysinfo.txt
-UnityPlayer.dll
 
 # Builds
 *.apk
 *.aab
 *.unitypackage
 *.app
-*.exe
 
 # Crashlytics generated file
 crashlytics-build.properties
@@ -77,4 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
-.idea/
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# End of https://www.toptal.com/developers/gitignore/api/unity

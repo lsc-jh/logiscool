@@ -10,6 +10,7 @@ public class PlayerShoot : MonoBehaviour
     public float speed = 10f;
     private Vector3 shootDirection;
     private bool round = false;
+    public GameController game; // Uj valtozo
     
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class PlayerShoot : MonoBehaviour
         {
             round = true;
             CurrentAmmo = AmmoAmount;
+            game.CheckPos();
         }
     }
     IEnumerator Shoot()

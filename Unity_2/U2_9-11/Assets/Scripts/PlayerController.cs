@@ -22,5 +22,10 @@ public class PlayerController : MonoBehaviour
             GetComponent<CharacterController>().Move(
                 hit.transform.forward * (PlatformController.moveSpeed / 4f) * Time.deltaTime);
         }
+
+        if (hit.gameObject.tag == "Car")
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 }

@@ -5,8 +5,13 @@ using UnityEngine;
 public class SpawnController : MonoBehaviour
 {
     public GameObject platform;
+    public GameObject car;
 
-    private Vector3 spawn_1 = new Vector3(-50, 55, 60);
+    private Vector3 spawn_1 = new Vector3(-50, 55, 0);
+
+    private Vector3 land_1 = new Vector3(-65, 56.4f, 5);
+    private Vector3 land_2 = new Vector3(-33, 56.4f, 5);
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +26,16 @@ public class SpawnController : MonoBehaviour
             if (Random.Range(0, 2) == 1)
             {
                 Instantiate(platform, spawn_1, Quaternion.identity);
+            }
+            
+            if (Random.Range(0, 2) == 1)
+            {
+                Instantiate(car, land_1, Quaternion.identity);
+            }
+            
+            if (Random.Range(0, 2) == 1)
+            {
+                Instantiate(car, land_2, Quaternion.identity);
             }
         }
     }

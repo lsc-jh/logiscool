@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - platform
+  - Wall
+  - Car
   layers:
   - Default
   - TransparentFX

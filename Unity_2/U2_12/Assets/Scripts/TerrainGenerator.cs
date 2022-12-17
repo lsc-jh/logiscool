@@ -43,7 +43,7 @@ public class TerrainGenerator : MonoBehaviour
         data.SetHeights(0, 0, GenHeight());
         return data;
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,12 +55,9 @@ public class TerrainGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("space"))
-        {
-            terrain.terrainData = GenTerrain(terrain.terrainData);
-            offsetX += Time.deltaTime * 5f;
-        }
-        
+        terrain.terrainData = GenTerrain(terrain.terrainData);
+        offsetX += Time.deltaTime * 5f;
+
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             terrain.terrainData = GenTerrain(terrain.terrainData);
@@ -71,7 +68,7 @@ public class TerrainGenerator : MonoBehaviour
             terrain.terrainData = GenTerrain(terrain.terrainData);
             offsetY += Time.deltaTime * 3f;
         }
-        
+
         if (Input.GetKey("g"))
         {
             terrain.terrainData = GenTerrain(terrain.terrainData);

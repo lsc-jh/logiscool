@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y <= 55f)
+        if (this.transform.position.y <= 55f)
         {
             SceneManager.LoadScene("SampleScene");
         }

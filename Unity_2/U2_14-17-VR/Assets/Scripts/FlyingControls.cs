@@ -18,10 +18,15 @@ public class FlyingControls : MonoBehaviour
     public Transform CheckpointsObject;
     private List<Transform> checkpoints = new List<Transform>();
     public Text WinText;
+    
+    private float timeLeft = 10f;
+    public Text TimerText;
+    public bool round = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        round = true;
         WinText.enabled = false;
         for (var i = 0; i < CheckpointsObject.childCount; i++)
         {
@@ -36,6 +41,19 @@ public class FlyingControls : MonoBehaviour
     {
         speed = baseSpeed + GvrVRHelpers.GetHeadRotation().x * 10;
         transform.position = Vector3.MoveTowards(transform.position, transform.position + GvrVRHelpers.GetHeadForward(), speed * Time.deltaTime);
+
+        if (timeLeft > 0 && round)
+        {
+            timeLeft -= Time.deltaTime;
+            TimerText.text = $"Time left: {Math.Round(timeLeft, 1)}";
+        }
+        else
+        {
+            if (round)
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +62,9 @@ public class FlyingControls : MonoBehaviour
         {
             checkpoints.RemoveAt(0);
             Destroy(other.gameObject);
+
+            timeLeft += 5f;
+            
             if (checkpoints.Count == 0)
             {
                 Debug.Log("Win");
@@ -66,11 +87,43 @@ public class FlyingControls : MonoBehaviour
         baseSpeed = 0;
         animator.SetBool("Fade", true);
         yield return new WaitUntil(() => blackScreen.color.a == 1);
-        SceneManager.LoadScene("SampleScene");
+        if (round)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+        else if(SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            SceneManager.LoadScene("Level2");
+        }
+        else if(SceneManager.GetActiveScene().name == "Level2")
+        {
+            SceneManager.LoadScene("Level3");
+        }
+        else
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 
     IEnumerator Win()
     {
+        round = false;
+        baseSpeed = 0;
+        TimerText.text = $"Finished: {Math.Round(timeLeft, 1)}";
+        
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            WinText.text = "Level 1 Completed!";
+        }
+        else if(SceneManager.GetActiveScene().name == "Level2")
+        {
+            WinText.text = "Level 2 Completed!";
+        }
+        else
+        {
+            WinText.text = "You Completed the Game!";
+        }
+        
         WinText.enabled = true;
         yield return new WaitForSeconds(3);
         WinText.enabled = false;

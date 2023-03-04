@@ -41,6 +41,19 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if(other.gameObject.tag == "cointag"){
+            coinGet += 2;
+            if (maxCoin < coinGet) maxCoin = coinGet;
+
+            ObjectPools.Instance.ReturnToPool(other.GetComponent<CoinRotate>());
+
+            if(coinGet >= goalCoin){
+                goalCoin += coinGet / 2;
+                addSpeed += 2f;
+                speed += addSpeed / 2;
+            }
+        }
+
     }
     IEnumerator GameEnd()
     {

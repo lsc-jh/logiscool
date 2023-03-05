@@ -7,7 +7,6 @@ public class Spawner : MonoBehaviour
     public GameObject obstacle;
     private bool spawning = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnItems());

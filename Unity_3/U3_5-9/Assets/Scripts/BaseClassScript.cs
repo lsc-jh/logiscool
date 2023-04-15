@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseClassScript : MonoBehaviour
+public class BaseClassScript : MonoBehaviour, IClass
 {
     private string _className;
-
     public int Health { get; set; }
     public int Strength { get;set; }
     public int Damage { get; set; }

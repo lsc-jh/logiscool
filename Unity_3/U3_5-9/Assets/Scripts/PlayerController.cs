@@ -10,13 +10,13 @@ public class PlayerController : MonoBehaviour
     private bool jump = false;
     private Rigidbody2D rb;
 
-    private string _className = "Player";
-    private int _health;
-    private int _strength;
-    private int _agility;
-    private int _intelligence;
-    private int _damage;
-    private bool _shoot;
+    // private string _className = "Player";
+    // private int _health;
+    // private int _strength;
+    // private int _agility;
+    // private int _intelligence;
+    // private int _damage;
+    // private bool _shoot;
 
     private IClass _class;
 
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        WarriorClass();
+        SetupClass<BaseWarrior>();
     }
 
     // Update is called once per frame
@@ -59,19 +59,17 @@ public class PlayerController : MonoBehaviour
         Moving(HorizontalMove, jump);
     }
 
-    void WarriorClass()
+    void SetupClass<T>()
     {
-        if (!GetComponent<BaseWarrior>())
+        if (!GetComponent<T>())
         {
-            _class = gameObject.AddComponent<BaseWarrior>();
-            _className = _class.ClassName;
-            _health = _class.Health;
-            _strength = _class.Strength;
-            _intelligence = _class.Intelligence;
-            _agility = _class.Agility;
-            _damage = _class.Damage;
+            _class = gameObject.AddComponent<T>();
+            // _className = _class.ClassName;
+            // _health = _class.Health;
+            // _strength = _class.Strength;
+            // _intelligence = _class.Intelligence;
+            // _agility = _class.Agility;
+            // _damage = _class.Damage;
         }
-        
-        
     }
 }
